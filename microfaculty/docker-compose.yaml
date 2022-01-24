@@ -10,22 +10,30 @@ services:
       - faculty-network
     depends_on:
       - eureka-server
+      - rabbitmq
     environment:
       EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://eureka-server:8761/eureka
       SPRING.ZIPKIN.BASE-URL: http://zipkin-server:9411
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
   
   student-service:
     image: maradga/student-service-h2:0.0.1-SNAPSHOT
-    mem_limit: 1000m
+    mem_limit: 1100m
     ports:
       - "8080:8080"
     networks:
       - faculty-network
     depends_on:
       - eureka-server
+      - rabbitmq
     environment:
       EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://eureka-server:8761/eureka
       SPRING.ZIPKIN.BASE-URL: http://zipkin-server:9411
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
    
   api-gateway:
     image: maradga/api-gateway:0.0.1-SNAPSHOT
@@ -36,9 +44,13 @@ services:
       - faculty-network
     depends_on:
       - eureka-server
+      - rabbitmq
     environment:
       EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://eureka-server:8761/eureka
       SPRING.ZIPKIN.BASE-URL: http://zipkin-server:9411
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
           
   eureka-server:
     image: maradga/eureka-server:0.0.1-SNAPSHOT
@@ -53,6 +65,19 @@ services:
     mem_limit: 300m
     ports:
       - "9411:9411"
+    networks:
+      - faculty-network
+    environment:
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - rabbitmq
+      
+  rabbitmq:
+    image: rabbitmq:latest
+    mem_limit: 300m
+    ports:
+      - "5672:5672"
+      - "15672:15672"
     networks:
       - faculty-network
       
