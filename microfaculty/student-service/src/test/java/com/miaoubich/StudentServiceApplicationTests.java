@@ -53,7 +53,9 @@ class StudentServiceApplicationTests {
 	private StudentRepository studentRepository;
 	@Autowired
 	private MockMvc mockMvc;
-
+	
+	
+	private ObjectMapper mapper = new ObjectMapper();
 	private long studentId = 5;
 
 	@Test
@@ -74,7 +76,7 @@ class StudentServiceApplicationTests {
 	@Test
 	void addStudentUingMockitoAndMockMvcTest() throws Exception {
 		CreateStudentRequest studentRequest = createStudentRequest();
-		ObjectMapper mapper = new ObjectMapper();
+		
 		String jsonRequest = mapper.writeValueAsString(studentRequest);
 
 		CustomResponseMessage expectedResponse = new CustomResponseMessage();
@@ -83,22 +85,23 @@ class StudentServiceApplicationTests {
 		when(studentService.addStudent(any())).thenReturn(expectedResponse);
 
 		this.mockMvc.perform(post("/api/student/add").content(jsonRequest).contentType(MediaType.APPLICATION_JSON))
-				.andDo(print()).andExpect(status().isCreated())
+				.andDo(print())
+				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.response").value(expectedResponse.getResponse()));
 	}
 
 	@Test
 	public void printSingleStudentTest() throws Exception {
 
-		StudentResponse createStudent = new StudentResponse(buildStudent());
-		logger.info("StudentId: " + createStudent.getId());
-		when(studentService.getStudentById(studentId)).thenReturn(createStudent);
+		StudentResponse studentResponse = new StudentResponse(buildStudent());
+		logger.info("StudentId: " + studentResponse.getId());
+		when(studentService.getStudentById(studentId)).thenReturn(studentResponse);
 
-		this.mockMvc.perform(get("/api/student/" + createStudent.getId())
+		this.mockMvc.perform(get("/api/student/" + studentResponse.getId())
 	// 						.param("name", "Ali") // add this if there parameters in the url)
 							) 
 				.andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.firstName").value(createStudent.getFirstName()));
+				.andExpect(jsonPath("$.firstName").value(studentResponse.getFirstName()));
 //				.andReturn();
 	}
 
@@ -133,7 +136,6 @@ class StudentServiceApplicationTests {
 		Student student = buildStudent();
 		Student updateStudent = updateStudent();
 		
-		ObjectMapper mapper = new ObjectMapper();
 		String jsonString = mapper.writeValueAsString(updateStudent);
 
 		when(studentRepository.getById(any())).thenReturn(student);
