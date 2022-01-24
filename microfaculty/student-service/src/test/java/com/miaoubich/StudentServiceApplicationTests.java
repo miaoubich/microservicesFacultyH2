@@ -74,7 +74,7 @@ class StudentServiceApplicationTests {
 	}
 
 	@Test
-	void addStudentUingMockitoAndMockMvcTest() throws Exception {
+	void addStudentUsingMockitoAndMockMvcTest() throws Exception {
 		CreateStudentRequest studentRequest = createStudentRequest();
 		
 		String jsonRequest = mapper.writeValueAsString(studentRequest);

@@ -8,6 +8,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +44,7 @@ class AddressServiceApplicationTests {
 	private long addressId = 1;
 	
 	@Test
-	public void addSingleAddressTest() throws Exception {
+	public void createSingleAddressTest() throws Exception {
 		CreateAddressRequest addressRequest = addressRequest();
 		String jsonString = mapper.writeValueAsString(addressRequest);
 		
@@ -57,6 +60,22 @@ class AddressServiceApplicationTests {
 				.andExpect(jsonPath("$.street").value(addressResponse().getStreet()));
 	}
 	
+	@Test
+	public void createListOfStudents() throws Exception {
+		when(addressService.addAddressList(any())).thenReturn(studentsList());
+		String jsonString = mapper.writeValueAsString(studentsList());
+		
+		this.mockMvc.perform(post("/api/address/addList").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+					.andDo(print())
+					.andExpect(status().isCreated())
+					.andExpect(jsonPath("$.[0].id").value(3))
+					.andExpect(jsonPath("$.[0].city").value("Paris"))
+					.andExpect(jsonPath("$.[0].street").value("Rue des champs elysees"))
+					.andExpect(jsonPath("$.[1].id").value(4))
+					.andExpect(jsonPath("$.[1].city").value("Sarcelles"))
+					.andExpect(jsonPath("$.[1].street").value("Rue de champagne"));
+	}
+
 	@Test
 	void getSingleAddressTest() throws Exception {
 		AddressResponse addressResponse = new AddressResponse(buildAddress());
@@ -90,5 +109,25 @@ class AddressServiceApplicationTests {
 	
 	private AddressResponse addressResponse() {
 		return new AddressResponse(buildAddress());
+	}
+	
+	
+	private List<Address> studentsList() {
+		List<Address> addresses = new ArrayList<>();
+		
+		Address address1 = new Address();
+		address1.setId((long)3);
+		address1.setStreet("Rue des champs elysees");
+		address1.setCity("Paris");
+		
+		Address address2 = new Address();
+		address2.setId((long)4);
+		address2.setStreet("Rue de champagne");
+		address2.setCity("Sarcelles");
+		
+		addresses.add(address1);
+		addresses.add(address2);
+		
+		return addresses;
 	}
 }
