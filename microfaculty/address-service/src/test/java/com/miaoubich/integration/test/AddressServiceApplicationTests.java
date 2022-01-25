@@ -2,9 +2,12 @@ package com.miaoubich.integration.test;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -19,6 +22,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,6 +46,7 @@ class AddressServiceApplicationTests {
 	private final Logger log = LoggerFactory.getLogger(AddressServiceApplicationTests.class);
 	private ObjectMapper mapper = new ObjectMapper();
 	private long addressId = 1;
+	private long addressIdUpdate = 12;
 	
 	@Test
 	public void createSingleAddressTest() throws Exception {
@@ -61,9 +66,9 @@ class AddressServiceApplicationTests {
 	}
 	
 	@Test
-	public void createListOfStudents() throws Exception {
-		when(addressService.addAddressList(any())).thenReturn(studentsList());
-		String jsonString = mapper.writeValueAsString(studentsList());
+	public void createListOfAddresses() throws Exception {
+		when(addressService.addAddressList(any())).thenReturn(addressList());
+		String jsonString = mapper.writeValueAsString(addressList());
 		
 		this.mockMvc.perform(post("/api/address/addList").content(jsonString).contentType(MediaType.APPLICATION_JSON))
 					.andDo(print())
@@ -89,6 +94,48 @@ class AddressServiceApplicationTests {
 		
 	}
 
+	@Test
+	public void getListOfAddresses() throws Exception {
+		when(addressService.getAddresses()).thenReturn(addressList());
+		this.mockMvc.perform(get("/api/address/getList"))
+		.andDo(print())
+		.andExpect(status().isFound());
+		
+	}
+	
+	@Test
+	public void updateAddress() throws Exception {
+		String jsonString = mapper.writeValueAsString(buildAddress());
+		when(addressService.EditAddress(any())).thenReturn(updatedAddress());
+		
+		this.mockMvc.perform(put("/api/address/update").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+					.andDo(print())
+					.andExpect(status().isOk())
+					.andExpect(jsonPath("$.street").value(updatedAddress().getStreet()))
+					.andExpect(jsonPath("$.city").value(updatedAddress().getCity()));
+	}
+	
+	@Test
+	public void deleteAddress() throws Exception {
+		ResponseEntity<String> responseEntity = ResponseEntity.ok("Address successfully deleted!");
+		when(addressService.deleteAddress(any())).thenReturn(responseEntity);
+		
+		this.mockMvc.perform(delete("/api/address/delete/" + addressId))
+					.andDo(print())
+					.andExpect(status().isOk())
+					.andExpect(content().string(responseEntity.getBody()));
+	}
+	
+	private Address updatedAddress() {
+		Address address = new Address();
+		
+		address.setId(addressId);
+		address.setStreet("Updated street");
+		address.setCity("ZagrebUpdate");
+		
+		return address;
+	}
+	
 	private Address buildAddress() {
 		Address address = new Address();
 		
@@ -112,7 +159,7 @@ class AddressServiceApplicationTests {
 	}
 	
 	
-	private List<Address> studentsList() {
+	private List<Address> addressList() {
 		List<Address> addresses = new ArrayList<>();
 		
 		Address address1 = new Address();

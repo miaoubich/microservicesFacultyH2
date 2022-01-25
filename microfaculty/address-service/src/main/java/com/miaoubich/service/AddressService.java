@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.miaoubich.entity.Address;
@@ -51,7 +52,9 @@ public class AddressService {
 		return addressRepository.save(existingAddress);
 	}
 
-	public void deleteAddress(Long addressId) {
+	public ResponseEntity<String> deleteAddress(Long addressId) {
 		addressRepository.deleteById(addressId);
+		
+		return ResponseEntity.ok("Address successfully deleted!");
 	}
 }

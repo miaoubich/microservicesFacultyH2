@@ -60,9 +60,7 @@ public class AddressController {
 
 	@DeleteMapping("/delete/{addressId}")
 	public ResponseEntity<String> deleteAddress(@PathVariable Long addressId) {
-		addressService.deleteAddress(addressId);
-
-		return ResponseEntity.ok("Address successfully deleted!");
+		return addressService.deleteAddress(addressId);
 	}
 	
 //	@GetMapping("/test")

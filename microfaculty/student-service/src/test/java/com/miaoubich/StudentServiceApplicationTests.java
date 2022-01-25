@@ -136,9 +136,9 @@ class StudentServiceApplicationTests {
 		Student student = buildStudent();
 		Student updateStudent = updateStudent();
 		
-		String jsonString = mapper.writeValueAsString(updateStudent);
+		String jsonString = mapper.writeValueAsString(student);
 
-		when(studentRepository.getById(any())).thenReturn(student);
+		when(studentService.EditStudent(any())).thenReturn(updateStudent);
 		
 		this.mockMvc.perform(put("/api/student/update").contentType(MediaType.APPLICATION_JSON).content(jsonString))
 						.andDo(print())
