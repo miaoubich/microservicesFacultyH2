@@ -1,0 +1,1263 @@
+2022-01-28 23:07:24.314  INFO [address-service,,] 22508 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:07:26.519  INFO [address-service,,] 22508 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:07:26.521  WARN [address-service,,] 22508 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:07:26.540  INFO [address-service,,] 22508 --- [restartedMain] com.miaoubich.AddressServiceApplication  : The following profiles are active: dev
+2022-01-28 23:07:28.599  INFO [address-service,,] 22508 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:07:28.907  INFO [address-service,,] 22508 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 289 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:07:30.446  INFO [address-service,,] 22508 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:07:35.245  WARN [address-service,,] 22508 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:07:38.303  INFO [address-service,,] 22508 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:07:38.327  INFO [address-service,,] 22508 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:07:38.328  INFO [address-service,,] 22508 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:07:38.543  INFO [address-service,,] 22508 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:07:38.547  INFO [address-service,,] 22508 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11894 ms
+2022-01-28 23:07:38.588  INFO [address-service,,] 22508 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:07:39.037  INFO [address-service,,] 22508 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:07:39.058  INFO [address-service,,] 22508 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:07:39.689  INFO [address-service,,] 22508 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:07:39.895  INFO [address-service,,] 22508 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:07:40.794  INFO [address-service,,] 22508 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:07:41.197  INFO [address-service,,] 22508 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-01-28 23:07:42.623 DEBUG [address-service,,] 22508 --- [restartedMain] org.hibernate.SQL                        : drop table if exists addresses
+2022-01-28 23:07:42.632 DEBUG [address-service,,] 22508 --- [restartedMain] org.hibernate.SQL                        : create table addresses (address_id bigint not null auto_increment, city varchar(255), street varchar(255), primary key (address_id)) engine=MyISAM
+2022-01-28 23:07:42.638  WARN [address-service,,] 22508 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table addresses (address_id bigint not null auto_increment, city varchar(255), street varchar(255), primary key (address_id)) engine=MyISAM" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table addresses (address_id bigint not null auto_increment, city varchar(255), street varchar(255), primary key (address_id)) engine=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:458) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:442) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:325) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:169) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:138) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:124) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:164) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) [spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) [spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) [spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.2.jar:2.6.2]
+	at com.miaoubich.AddressServiceApplication.main(AddressServiceApplication.java:18) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.6.2.jar:2.6.2]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ADDRESSES (ADDRESS_ID BIGINT NOT NULL AUTO_INCREMENT, CITY VARCHAR(255), STREET VARCHAR(255), PRIMARY KEY (ADDRESS_ID)) ENGINE=[*]MYISAM"; expected "identifier"; SQL statement:
+create table addresses (address_id bigint not null auto_increment, city varchar(255), street varchar(255), primary key (address_id)) engine=MyISAM [42001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:243) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readColumnIdentifier(Parser.java:4976) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readUniqueIdentifier(Parser.java:4962) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8387) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseCreate(Parser.java:6276) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:903) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	... 39 common frames omitted
+
+2022-01-28 23:07:42.643  INFO [address-service,,] 22508 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:07:42.657  INFO [address-service,,] 22508 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:07:44.077  WARN [address-service,,] 22508 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:07:46.856  INFO [address-service,,] 22508 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:07:47.912  INFO [address-service,,] 22508 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:07:49.417  WARN [address-service,,] 22508 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:07:49.535  INFO [address-service,,] 22508 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:07:49.671  INFO [address-service,,] 22508 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:07:49.866  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:07:50.008  INFO [address-service,,] 22508 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:07:50.009  INFO [address-service,,] 22508 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:07:50.298  INFO [address-service,,] 22508 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:07:50.298  INFO [address-service,,] 22508 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:07:50.823  INFO [address-service,,] 22508 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:07:50.877  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:07:50.877  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:07:50.877  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:07:50.878  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:07:50.878  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:07:50.878  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:07:50.878  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:07:51.299  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:07:51.306  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:07:51.313  INFO [address-service,,] 22508 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:07:51.320  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643407671318 with initial instances count: 1
+2022-01-28 23:07:51.339  INFO [address-service,,] 22508 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:07:51.341  INFO [address-service,,] 22508 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643407671341, current=UP, previous=STARTING]
+2022-01-28 23:07:51.347  INFO [address-service,,] 22508 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:07:51.458  INFO [address-service,,] 22508 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:07:51.462  INFO [address-service,,] 22508 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:07:51.472  INFO [address-service,,] 22508 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:07:52.444  INFO [address-service,,] 22508 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 31.113 seconds (JVM running for 32.425)
+2022-01-28 23:08:48.345  INFO [address-service,a41ad551a5d76ca5,a41ad551a5d76ca5] 22508 --- [http-nio-8181-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:08:48.350  INFO [address-service,a41ad551a5d76ca5,a41ad551a5d76ca5] 22508 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:08:48.356  INFO [address-service,a41ad551a5d76ca5,a41ad551a5d76ca5] 22508 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-01-28 23:08:49.294 DEBUG [address-service,a41ad551a5d76ca5,10626885b1bfea9f] 22508 --- [http-nio-8181-exec-2] org.hibernate.SQL                        : select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_
+2022-01-28 23:08:49.322  WARN [address-service,a41ad551a5d76ca5,10626885b1bfea9f] 22508 --- [http-nio-8181-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42102, SQLState: 42S02
+2022-01-28 23:08:49.322 ERROR [address-service,a41ad551a5d76ca5,10626885b1bfea9f] 22508 --- [http-nio-8181-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table "ADDRESSES" not found; SQL statement:
+select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_ [42102-200]
+2022-01-28 23:08:49.435 ERROR [address-service,a41ad551a5d76ca5,10626885b1bfea9f] 22508 --- [http-nio-8181-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement] with root cause
+
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESSES" not found; SQL statement:
+select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_ [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2122) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2059) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:956) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2868) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2850) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2677) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:540) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:219) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1454) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1649) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:165) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.query.criteria.internal.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:76) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:399) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:84) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:638) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.sun.proxy.$Proxy176.findAll(Unknown Source) ~[na:na]
+	at com.miaoubich.service.AddressService.getAddresses(AddressService.java:43) ~[classes/:na]
+	at com.miaoubich.controller.AddressController.getAllAddresses(AddressController.java:53) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar:5.3.14]
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.miaoubich.controller.AddressController$$EnhancerBySpringCGLIB$$186b13b2.getAllAddresses(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.servlet.TracingFilter.doFilter(TracingFilter.java:68) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.springframework.cloud.sleuth.autoconfig.instrument.web.TraceWebServletConfiguration$LazyTracingFilter.doFilter(TraceWebServletConfiguration.java:129) ~[spring-cloud-sleuth-autoconfigure-3.1.0.jar:3.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar:2.6.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.tomcat.TraceValve.invoke(TraceValve.java:74) [spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+
+2022-01-28 23:08:54.466  WARN [address-service,,] 22508 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:08:54.468  WARN [address-service,,] 22508 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
+2022-01-28 23:09:04.565 DEBUG [address-service,0b5ab32306fde68b,41e012bc2d437859] 22508 --- [http-nio-8181-exec-3] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:09:04.566  WARN [address-service,0b5ab32306fde68b,41e012bc2d437859] 22508 --- [http-nio-8181-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42102, SQLState: 42S02
+2022-01-28 23:09:04.567 ERROR [address-service,0b5ab32306fde68b,41e012bc2d437859] 22508 --- [http-nio-8181-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table "ADDRESSES" not found; SQL statement:
+select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=? [42102-200]
+2022-01-28 23:09:04.573  INFO [address-service,0b5ab32306fde68b,41e012bc2d437859] 22508 --- [http-nio-8181-exec-3] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
+
+org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:186) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.prepareQueryStatement(AbstractLoadPlanBasedLoader.java:198) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeQueryStatement(AbstractLoadPlanBasedLoader.java:162) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:104) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4521) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4511) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:103) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) [hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1226) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionImpl.immediateLoad(SessionImpl.java:1045) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:185) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:322) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:45) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at com.miaoubich.entity.Address$HibernateProxy$VMnjNxm9.getStreet(Unknown Source) ~[classes/:na]
+	at com.miaoubich.response.AddressResponse.<init>(AddressResponse.java:15) ~[classes/:na]
+	at com.miaoubich.service.AddressService.getAddressById(AddressService.java:39) ~[classes/:na]
+	at com.miaoubich.controller.AddressController.printSingleAddress(AddressController.java:48) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar:5.3.14]
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.miaoubich.controller.AddressController$$EnhancerBySpringCGLIB$$186b13b2.printSingleAddress(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.servlet.TracingFilter.doFilter(TracingFilter.java:68) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.springframework.cloud.sleuth.autoconfig.instrument.web.TraceWebServletConfiguration$LazyTracingFilter.doFilter(TraceWebServletConfiguration.java:129) ~[spring-cloud-sleuth-autoconfigure-3.1.0.jar:3.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar:2.6.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.tomcat.TraceValve.invoke(TraceValve.java:74) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.8.0_271]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESSES" not found; SQL statement:
+select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=? [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	... 92 common frames omitted
+
+2022-01-28 23:09:04.589 ERROR [address-service,0b5ab32306fde68b,41e012bc2d437859] 22508 --- [http-nio-8181-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement] with root cause
+
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESSES" not found; SQL statement:
+select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=? [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.prepareQueryStatement(AbstractLoadPlanBasedLoader.java:198) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeQueryStatement(AbstractLoadPlanBasedLoader.java:162) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:104) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4521) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4511) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:103) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1226) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionImpl.immediateLoad(SessionImpl.java:1045) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:185) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:322) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:45) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at com.miaoubich.entity.Address$HibernateProxy$VMnjNxm9.getStreet(Unknown Source) ~[classes/:na]
+	at com.miaoubich.response.AddressResponse.<init>(AddressResponse.java:15) ~[classes/:na]
+	at com.miaoubich.service.AddressService.getAddressById(AddressService.java:39) ~[classes/:na]
+	at com.miaoubich.controller.AddressController.printSingleAddress(AddressController.java:48) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar:5.3.14]
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.miaoubich.controller.AddressController$$EnhancerBySpringCGLIB$$186b13b2.printSingleAddress(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.servlet.TracingFilter.doFilter(TracingFilter.java:68) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.springframework.cloud.sleuth.autoconfig.instrument.web.TraceWebServletConfiguration$LazyTracingFilter.doFilter(TraceWebServletConfiguration.java:129) ~[spring-cloud-sleuth-autoconfigure-3.1.0.jar:3.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar:2.6.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.tomcat.TraceValve.invoke(TraceValve.java:74) [spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+
+2022-01-28 23:13:11.575  INFO [address-service,,] 14356 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:13:13.827  INFO [address-service,,] 14356 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:13:13.829  WARN [address-service,,] 14356 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:13:13.850  INFO [address-service,,] 14356 --- [restartedMain] com.miaoubich.AddressServiceApplication  : No active profile set, falling back to default profiles: default
+2022-01-28 23:13:15.704  INFO [address-service,,] 14356 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:13:15.992  INFO [address-service,,] 14356 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 267 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:13:17.667  INFO [address-service,,] 14356 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:13:22.987  WARN [address-service,,] 14356 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:13:26.413  INFO [address-service,,] 14356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:13:26.441  INFO [address-service,,] 14356 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:13:26.441  INFO [address-service,,] 14356 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:13:26.722  INFO [address-service,,] 14356 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:13:26.723  INFO [address-service,,] 14356 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 12768 ms
+2022-01-28 23:13:26.778  INFO [address-service,,] 14356 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:13:27.318  INFO [address-service,,] 14356 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:13:27.339  INFO [address-service,,] 14356 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:13:28.249  INFO [address-service,,] 14356 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:13:28.508  INFO [address-service,,] 14356 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:13:28.993  INFO [address-service,,] 14356 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:13:29.634  INFO [address-service,,] 14356 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-01-28 23:13:31.041 DEBUG [address-service,,] 14356 --- [restartedMain] org.hibernate.SQL                        : drop table if exists addresses CASCADE 
+2022-01-28 23:13:31.053 DEBUG [address-service,,] 14356 --- [restartedMain] org.hibernate.SQL                        : create table addresses (address_id bigint generated by default as identity, city varchar(255), street varchar(255), primary key (address_id))
+2022-01-28 23:13:31.059  INFO [address-service,,] 14356 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:13:31.080  INFO [address-service,,] 14356 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:13:32.027  WARN [address-service,,] 14356 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:13:34.637  INFO [address-service,,] 14356 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:13:35.486  INFO [address-service,,] 14356 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:13:36.908  WARN [address-service,,] 14356 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:13:37.170  INFO [address-service,,] 14356 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:13:37.327  INFO [address-service,,] 14356 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:13:37.584  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:13:37.755  INFO [address-service,,] 14356 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:13:37.756  INFO [address-service,,] 14356 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:13:38.130  INFO [address-service,,] 14356 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:13:38.134  INFO [address-service,,] 14356 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:13:38.728  INFO [address-service,,] 14356 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:13:38.817  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:13:38.817  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:13:38.818  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:13:38.818  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:13:38.819  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:13:38.819  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:13:38.819  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:13:39.270  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:13:39.276  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:13:39.286  INFO [address-service,,] 14356 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:13:39.296  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643408019292 with initial instances count: 2
+2022-01-28 23:13:39.321  INFO [address-service,,] 14356 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:13:39.322  INFO [address-service,,] 14356 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643408019322, current=UP, previous=STARTING]
+2022-01-28 23:13:39.332  INFO [address-service,,] 14356 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:13:39.426  INFO [address-service,,] 14356 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:13:39.438  INFO [address-service,,] 14356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:13:39.440  INFO [address-service,,] 14356 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:13:40.856  INFO [address-service,,] 14356 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 32.441 seconds (JVM running for 33.696)
+2022-01-28 23:14:10.899  INFO [address-service,c0dc81cb66505672,7994005a21cc315f] 14356 --- [http-nio-8181-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:14:10.900  INFO [address-service,c0dc81cb66505672,7994005a21cc315f] 14356 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:14:10.912  INFO [address-service,c0dc81cb66505672,7994005a21cc315f] 14356 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2022-01-28 23:14:11.656 DEBUG [address-service,c0dc81cb66505672,6d519bd5410186e2] 14356 --- [http-nio-8181-exec-1] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:14:11.815 ERROR [address-service,c0dc81cb66505672,6d519bd5410186e2] 14356 --- [http-nio-8181-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.miaoubich.entity.Address with id 1] with root cause
+
+javax.persistence.EntityNotFoundException: Unable to find com.miaoubich.entity.Address with id 1
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:177) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.checkTargetState(AbstractLazyInitializer.java:298) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:187) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:322) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:45) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at com.miaoubich.entity.Address$HibernateProxy$vNc2yspt.getStreet(Unknown Source) ~[classes/:na]
+	at com.miaoubich.response.AddressResponse.<init>(AddressResponse.java:15) ~[classes/:na]
+	at com.miaoubich.service.AddressService.getAddressById(AddressService.java:39) ~[classes/:na]
+	at com.miaoubich.controller.AddressController.printSingleAddress(AddressController.java:48) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar:5.3.14]
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.miaoubich.controller.AddressController$$EnhancerBySpringCGLIB$$6a0957e9.printSingleAddress(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.servlet.TracingFilter.doFilter(TracingFilter.java:68) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.springframework.cloud.sleuth.autoconfig.instrument.web.TraceWebServletConfiguration$LazyTracingFilter.doFilter(TraceWebServletConfiguration.java:129) ~[spring-cloud-sleuth-autoconfigure-3.1.0.jar:3.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar:2.6.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.tomcat.TraceValve.invoke(TraceValve.java:74) [spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+
+2022-01-28 23:14:16.772  WARN [address-service,,] 14356 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:14:16.773  WARN [address-service,,] 14356 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
+2022-01-28 23:16:41.799  INFO [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:16:44.019  INFO [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:16:44.022  WARN [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:16:44.038  INFO [address-service,,] 5636 --- [restartedMain] com.miaoubich.AddressServiceApplication  : No active profile set, falling back to default profiles: default
+2022-01-28 23:16:45.836  INFO [address-service,,] 5636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:16:46.104  INFO [address-service,,] 5636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 247 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:16:47.839  INFO [address-service,,] 5636 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:16:52.954  WARN [address-service,,] 5636 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:16:56.312  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:16:56.328  INFO [address-service,,] 5636 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:16:56.329  INFO [address-service,,] 5636 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:16:56.577  INFO [address-service,,] 5636 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:16:56.578  INFO [address-service,,] 5636 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 12421 ms
+2022-01-28 23:16:56.621  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:16:57.006  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:16:57.021  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:16:57.649  INFO [address-service,,] 5636 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:16:57.793  INFO [address-service,,] 5636 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:16:58.257  INFO [address-service,,] 5636 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:16:58.799  INFO [address-service,,] 5636 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-01-28 23:17:00.079 DEBUG [address-service,,] 5636 --- [restartedMain] org.hibernate.SQL                        : drop table if exists addresses CASCADE 
+2022-01-28 23:17:00.091 DEBUG [address-service,,] 5636 --- [restartedMain] org.hibernate.SQL                        : create table addresses (address_id bigint generated by default as identity, city varchar(255), street varchar(255), primary key (address_id))
+2022-01-28 23:17:00.096  INFO [address-service,,] 5636 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:17:00.137  INFO [address-service,,] 5636 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:17:01.123  WARN [address-service,,] 5636 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:17:03.532  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:17:04.778  INFO [address-service,,] 5636 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:17:06.445  WARN [address-service,,] 5636 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:17:06.599  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:17:06.755  INFO [address-service,,] 5636 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:17:06.953  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:17:07.181  INFO [address-service,,] 5636 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:17:07.185  INFO [address-service,,] 5636 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:17:07.626  INFO [address-service,,] 5636 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:17:07.627  INFO [address-service,,] 5636 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:17:08.148  INFO [address-service,,] 5636 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:17:08.195  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:17:08.195  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:17:08.196  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:17:08.196  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:17:08.196  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:17:08.196  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:17:08.198  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:17:08.646  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:17:08.657  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:17:08.662  INFO [address-service,,] 5636 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:17:08.672  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643408228670 with initial instances count: 2
+2022-01-28 23:17:08.721  INFO [address-service,,] 5636 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:17:08.723  INFO [address-service,,] 5636 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643408228723, current=UP, previous=STARTING]
+2022-01-28 23:17:08.727  INFO [address-service,,] 5636 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:17:08.783  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:17:08.807  INFO [address-service,,] 5636 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:17:08.912  INFO [address-service,,] 5636 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:17:10.757  INFO [address-service,,] 5636 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 31.977 seconds (JVM running for 33.308)
+2022-01-28 23:17:54.206  INFO [address-service,ba2402a094026851,a49ed4e8d271680b] 5636 --- [http-nio-8181-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:17:54.210  INFO [address-service,ba2402a094026851,a49ed4e8d271680b] 5636 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:17:54.224  INFO [address-service,ba2402a094026851,a49ed4e8d271680b] 5636 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2022-01-28 23:17:54.676 DEBUG [address-service,ba2402a094026851,ca02ba56e0a2ed5c] 5636 --- [http-nio-8181-exec-1] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:17:54.773 ERROR [address-service,ba2402a094026851,ca02ba56e0a2ed5c] 5636 --- [http-nio-8181-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.miaoubich.entity.Address with id 1] with root cause
+
+javax.persistence.EntityNotFoundException: Unable to find com.miaoubich.entity.Address with id 1
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:177) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.checkTargetState(AbstractLazyInitializer.java:298) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:187) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:322) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:45) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at com.miaoubich.entity.Address$HibernateProxy$5q15AOQF.getStreet(Unknown Source) ~[classes/:na]
+	at com.miaoubich.response.AddressResponse.<init>(AddressResponse.java:15) ~[classes/:na]
+	at com.miaoubich.service.AddressService.getAddressById(AddressService.java:39) ~[classes/:na]
+	at com.miaoubich.controller.AddressController.printSingleAddress(AddressController.java:48) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar:5.3.14]
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.miaoubich.controller.AddressController$$EnhancerBySpringCGLIB$$9dec4e70.printSingleAddress(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.servlet.TracingFilter.doFilter(TracingFilter.java:68) ~[spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.springframework.cloud.sleuth.autoconfig.instrument.web.TraceWebServletConfiguration$LazyTracingFilter.doFilter(TraceWebServletConfiguration.java:129) ~[spring-cloud-sleuth-autoconfigure-3.1.0.jar:3.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar:2.6.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.cloud.sleuth.instrument.web.tomcat.TraceValve.invoke(TraceValve.java:74) [spring-cloud-sleuth-instrumentation-3.1.0.jar:3.1.0]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+
+2022-01-28 23:17:59.732  WARN [address-service,,] 5636 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:17:59.736  WARN [address-service,,] 5636 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
+2022-01-28 23:18:04.266 DEBUG [address-service,6d31a2293ee897ed,25456172197217c6] 5636 --- [http-nio-8181-exec-3] org.hibernate.SQL                        : select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_
+2022-01-28 23:18:41.274  INFO [address-service,,] 5636 --- [Thread-11] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application ADDRESS-SERVICE with eureka with status DOWN
+2022-01-28 23:18:41.276  INFO [address-service,,] 5636 --- [Thread-11] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643408321276, current=DOWN, previous=UP]
+2022-01-28 23:18:41.278  INFO [address-service,,] 5636 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:18:41.300  INFO [address-service,,] 5636 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:18:41.879  INFO [address-service,,] 5636 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:18:42.121  WARN [address-service,,] 5636 --- [Thread-11] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-01-28 23:18:42.124  INFO [address-service,,] 5636 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-28 23:18:42.140  INFO [address-service,,] 5636 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-28 23:18:47.217  INFO [address-service,,] 5636 --- [Thread-11] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-01-28 23:18:50.240  INFO [address-service,,] 5636 --- [Thread-11] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-01-28 23:18:50.297  INFO [address-service,,] 5636 --- [Thread-11] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - deregister  status: 200
+2022-01-28 23:18:50.341  INFO [address-service,,] 5636 --- [Thread-11] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-01-28 23:18:52.486  INFO [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:18:54.531  INFO [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:18:54.532  WARN [address-service,,] 5636 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:18:54.540  INFO [address-service,,] 5636 --- [restartedMain] com.miaoubich.AddressServiceApplication  : No active profile set, falling back to default profiles: default
+2022-01-28 23:18:55.849  INFO [address-service,,] 5636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:18:55.875  INFO [address-service,,] 5636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:18:57.157  INFO [address-service,,] 5636 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:18:59.025  WARN [address-service,,] 5636 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:19:01.235  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:19:01.238  INFO [address-service,,] 5636 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:19:01.238  INFO [address-service,,] 5636 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:19:01.271  INFO [address-service,,] 5636 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:19:01.272  INFO [address-service,,] 5636 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6697 ms
+2022-01-28 23:19:01.293  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-01-28 23:19:01.306  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-01-28 23:19:01.306  INFO [address-service,,] 5636 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:19:01.423  WARN [address-service,,] 5636 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #2 of URL [file:/C:/Users/miaou/git/microfaculty/micro-faculty/microservicesFacultyH2/microfaculty/address-service/target/classes/data.sql]: INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN'); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN') [21002-200]
+2022-01-28 23:19:01.428  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-01-28 23:19:01.432  INFO [address-service,,] 5636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-01-28 23:19:02.438  WARN [address-service,,] 5636 --- [restartedMain] z.r.AsyncReporter$BoundedAsyncReporter   : Timed out waiting for in-flight spans to send
+2022-01-28 23:19:02.444  INFO [address-service,,] 5636 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-01-28 23:19:02.535  INFO [address-service,,] 5636 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-01-28 23:19:02.647 ERROR [address-service,,] 5636 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #2 of URL [file:/C:/Users/miaou/git/microfaculty/micro-faculty/microservicesFacultyH2/microfaculty/address-service/target/classes/data.sql]: INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN'); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN') [21002-200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.2.jar:2.6.2]
+	at com.miaoubich.AddressServiceApplication.main(AddressServiceApplication.java:18) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_271]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.6.2.jar:2.6.2]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #2 of URL [file:/C:/Users/miaou/git/microfaculty/micro-faculty/microservicesFacultyH2/microfaculty/address-service/target/classes/data.sql]: INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN'); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN') [21002-200]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:282) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:90) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:107) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyDataScripts(AbstractScriptDatabaseInitializer.java:101) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:65) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.14.jar:5.3.14]
+	... 23 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO ADDRESSES (address_id, CITY, STREET) VALUES ('OUED FODDA', 'rue abbache mohamed'), ('Split', 'Ulica franko'), ('Zagreb', 'Ulica bisha'), ('Sibanik', 'MEAN') [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:170) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.dml.Insert.prepare(Insert.java:319) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:744) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	... 33 common frames omitted
+
+2022-01-28 23:31:00.638  INFO [address-service,,] 2580 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:31:02.867  INFO [address-service,,] 2580 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:31:02.869  WARN [address-service,,] 2580 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:31:02.880  INFO [address-service,,] 2580 --- [restartedMain] com.miaoubich.AddressServiceApplication  : The following profiles are active: dev
+2022-01-28 23:31:04.487  INFO [address-service,,] 2580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:31:04.761  INFO [address-service,,] 2580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 257 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:31:06.619  INFO [address-service,,] 2580 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:31:11.701  WARN [address-service,,] 2580 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:31:14.986  INFO [address-service,,] 2580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:31:15.010  INFO [address-service,,] 2580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:31:15.011  INFO [address-service,,] 2580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:31:15.320  INFO [address-service,,] 2580 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:31:15.324  INFO [address-service,,] 2580 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 12373 ms
+2022-01-28 23:31:15.370  INFO [address-service,,] 2580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:31:15.803  INFO [address-service,,] 2580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:31:15.820  INFO [address-service,,] 2580 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:31:16.466  INFO [address-service,,] 2580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:31:16.663  INFO [address-service,,] 2580 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:31:17.069  INFO [address-service,,] 2580 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:31:17.637  INFO [address-service,,] 2580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-01-28 23:31:19.151  INFO [address-service,,] 2580 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:31:19.172  INFO [address-service,,] 2580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:31:20.584  WARN [address-service,,] 2580 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:31:23.412  INFO [address-service,,] 2580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:31:24.631  INFO [address-service,,] 2580 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:31:26.246  WARN [address-service,,] 2580 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:31:26.402  INFO [address-service,,] 2580 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:31:26.510  INFO [address-service,,] 2580 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:31:26.709  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:31:26.904  INFO [address-service,,] 2580 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:31:26.906  INFO [address-service,,] 2580 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:31:27.365  INFO [address-service,,] 2580 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:31:27.366  INFO [address-service,,] 2580 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:31:27.826  INFO [address-service,,] 2580 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:31:27.876  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:31:27.876  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:31:27.877  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:31:27.877  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:31:27.877  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:31:27.878  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:31:27.879  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:31:28.414  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:31:28.421  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:31:28.428  INFO [address-service,,] 2580 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:31:28.434  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643409088432 with initial instances count: 2
+2022-01-28 23:31:28.458  INFO [address-service,,] 2580 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:31:28.461  INFO [address-service,,] 2580 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643409088461, current=UP, previous=STARTING]
+2022-01-28 23:31:28.465  INFO [address-service,,] 2580 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:31:28.540  INFO [address-service,,] 2580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:31:28.548  INFO [address-service,,] 2580 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:31:28.601  INFO [address-service,,] 2580 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:31:30.038  INFO [address-service,,] 2580 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 32.494 seconds (JVM running for 33.884)
+2022-01-28 23:32:36.055  INFO [address-service,c3465da16dbbe9a2,c3465da16dbbe9a2] 2580 --- [http-nio-8181-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:32:36.056  INFO [address-service,c3465da16dbbe9a2,c3465da16dbbe9a2] 2580 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:32:36.062  INFO [address-service,c3465da16dbbe9a2,c3465da16dbbe9a2] 2580 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-01-28 23:32:36.813 DEBUG [address-service,c3465da16dbbe9a2,1246c7571216bf7f] 2580 --- [http-nio-8181-exec-1] org.hibernate.SQL                        : select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_
+2022-01-28 23:32:42.112  WARN [address-service,,] 2580 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:32:42.124  WARN [address-service,,] 2580 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
+2022-01-28 23:32:42.641 DEBUG [address-service,1665d6a8be1f397c,d9a3152c4d43506a] 2580 --- [http-nio-8181-exec-3] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:32:47.539 DEBUG [address-service,0fb541cfe3a9541d,bb7a0524bed9f24f] 2580 --- [http-nio-8181-exec-4] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:32:53.373 DEBUG [address-service,bf424973533c09c9,a941c8a494a25215] 2580 --- [http-nio-8181-exec-5] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:35:41.326  INFO [address-service,,] 20828 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:35:43.632  INFO [address-service,,] 20828 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:35:43.635  WARN [address-service,,] 20828 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:35:43.656  INFO [address-service,,] 20828 --- [restartedMain] com.miaoubich.AddressServiceApplication  : The following profiles are active: dev
+2022-01-28 23:35:45.585  INFO [address-service,,] 20828 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:35:45.890  INFO [address-service,,] 20828 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 289 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:35:47.758  INFO [address-service,,] 20828 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:35:52.641  WARN [address-service,,] 20828 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:35:56.244  INFO [address-service,,] 20828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:35:56.272  INFO [address-service,,] 20828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:35:56.275  INFO [address-service,,] 20828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:35:56.606  INFO [address-service,,] 20828 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:35:56.607  INFO [address-service,,] 20828 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 12807 ms
+2022-01-28 23:35:56.649  INFO [address-service,,] 20828 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:35:57.126  INFO [address-service,,] 20828 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:35:57.148  INFO [address-service,,] 20828 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:35:57.824  INFO [address-service,,] 20828 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:35:57.983  INFO [address-service,,] 20828 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:35:58.409  INFO [address-service,,] 20828 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:35:59.029  INFO [address-service,,] 20828 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-01-28 23:36:00.809  INFO [address-service,,] 20828 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:36:00.840  INFO [address-service,,] 20828 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:36:01.824  WARN [address-service,,] 20828 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:36:04.677  INFO [address-service,,] 20828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:36:06.010  INFO [address-service,,] 20828 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:36:07.430  WARN [address-service,,] 20828 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:36:07.575  INFO [address-service,,] 20828 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:36:07.682  INFO [address-service,,] 20828 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:36:07.866  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:36:08.044  INFO [address-service,,] 20828 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:36:08.045  INFO [address-service,,] 20828 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:36:08.367  INFO [address-service,,] 20828 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:36:08.368  INFO [address-service,,] 20828 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:36:08.745  INFO [address-service,,] 20828 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:36:08.793  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:36:08.793  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:36:08.794  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:36:08.794  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:36:08.794  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:36:08.794  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:36:08.795  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:36:09.181  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:36:09.188  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:36:09.194  INFO [address-service,,] 20828 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:36:09.200  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643409369198 with initial instances count: 2
+2022-01-28 23:36:09.223  INFO [address-service,,] 20828 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:36:09.224  INFO [address-service,,] 20828 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643409369224, current=UP, previous=STARTING]
+2022-01-28 23:36:09.229  INFO [address-service,,] 20828 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:36:09.328  INFO [address-service,,] 20828 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:36:09.341  INFO [address-service,,] 20828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:36:09.348  INFO [address-service,,] 20828 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:36:11.061  INFO [address-service,,] 20828 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 34.026 seconds (JVM running for 35.734)
+2022-01-28 23:36:37.312  INFO [address-service,b0a83e9b8cef7fa9,4fa36688b3a6fe1e] 20828 --- [http-nio-8181-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:36:37.313  INFO [address-service,b0a83e9b8cef7fa9,4fa36688b3a6fe1e] 20828 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:36:37.325  INFO [address-service,b0a83e9b8cef7fa9,4fa36688b3a6fe1e] 20828 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2022-01-28 23:36:37.847 DEBUG [address-service,b0a83e9b8cef7fa9,12238f38883c20e3] 20828 --- [http-nio-8181-exec-1] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:36:43.189  WARN [address-service,,] 20828 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:36:43.199  WARN [address-service,,] 20828 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
+2022-01-28 23:36:44.442 DEBUG [address-service,23cd053183c9c316,9cc0df10af58ddd9] 20828 --- [http-nio-8181-exec-2] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:36:51.558 DEBUG [address-service,166f70714adc9553,fe4df7afae7561c7] 20828 --- [http-nio-8181-exec-4] org.hibernate.SQL                        : select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_
+2022-01-28 23:36:56.123 DEBUG [address-service,b77364609981b0f6,989a27739a1cd76b] 20828 --- [http-nio-8181-exec-5] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:41:32.235  INFO [address-service,,] 12008 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2022-01-28 23:41:34.450  INFO [address-service,,] 12008 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-01-28 23:41:34.452  WARN [address-service,,] 12008 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/address-service/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2022-01-28 23:41:34.468  INFO [address-service,,] 12008 --- [restartedMain] com.miaoubich.AddressServiceApplication  : The following profiles are active: dev
+2022-01-28 23:41:36.317  INFO [address-service,,] 12008 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-28 23:41:36.635  INFO [address-service,,] 12008 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 298 ms. Found 1 JPA repository interfaces.
+2022-01-28 23:41:38.233  INFO [address-service,,] 12008 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2c8228a-f9c0-3415-b590-fe1021a54500
+2022-01-28 23:41:42.760  WARN [address-service,,] 12008 --- [restartedMain] o.s.c.s.a.z.ZipkinAutoConfiguration      : Check result of the [RabbitMQSender{addresses=[localhost:5672], queue=zipkin}] contains an error [CheckResult{ok=false, error=java.util.concurrent.TimeoutException: RabbitMQSender{addresses=[localhost:5672], queue=zipkin} check() timed out after 1000ms}]
+2022-01-28 23:41:45.827  INFO [address-service,,] 12008 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2022-01-28 23:41:45.853  INFO [address-service,,] 12008 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-28 23:41:45.854  INFO [address-service,,] 12008 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-28 23:41:46.112  INFO [address-service,,] 12008 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-28 23:41:46.113  INFO [address-service,,] 12008 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11557 ms
+2022-01-28 23:41:46.151  INFO [address-service,,] 12008 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-28 23:41:46.568  INFO [address-service,,] 12008 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-28 23:41:46.585  INFO [address-service,,] 12008 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bouzar'
+2022-01-28 23:41:47.219  INFO [address-service,,] 12008 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-28 23:41:47.365  INFO [address-service,,] 12008 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-28 23:41:47.848  INFO [address-service,,] 12008 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-28 23:41:48.635  INFO [address-service,,] 12008 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-01-28 23:41:50.399  INFO [address-service,,] 12008 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-28 23:41:50.436  INFO [address-service,,] 12008 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-28 23:41:51.796  WARN [address-service,,] 12008 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-28 23:41:54.503  INFO [address-service,,] 12008 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-28 23:41:55.709  INFO [address-service,,] 12008 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-01-28 23:41:57.123  WARN [address-service,,] 12008 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-28 23:41:57.284  INFO [address-service,,] 12008 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-01-28 23:41:57.423  INFO [address-service,,] 12008 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-28 23:41:57.605  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-28 23:41:57.785  INFO [address-service,,] 12008 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-01-28 23:41:57.788  INFO [address-service,,] 12008 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-01-28 23:41:58.158  INFO [address-service,,] 12008 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-01-28 23:41:58.164  INFO [address-service,,] 12008 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-01-28 23:41:58.657  INFO [address-service,,] 12008 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-28 23:41:58.704  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-28 23:41:58.704  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-28 23:41:58.705  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-28 23:41:58.705  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-28 23:41:58.706  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-28 23:41:58.706  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-28 23:41:58.706  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-28 23:41:59.126  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-28 23:41:59.132  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-28 23:41:59.137  INFO [address-service,,] 12008 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-28 23:41:59.143  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1643409719141 with initial instances count: 2
+2022-01-28 23:41:59.160  INFO [address-service,,] 12008 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADDRESS-SERVICE with eureka with status UP
+2022-01-28 23:41:59.160  INFO [address-service,,] 12008 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1643409719160, current=UP, previous=STARTING]
+2022-01-28 23:41:59.168  INFO [address-service,,] 12008 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181: registering service...
+2022-01-28 23:41:59.216  INFO [address-service,,] 12008 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path ''
+2022-01-28 23:41:59.219  INFO [address-service,,] 12008 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8181
+2022-01-28 23:41:59.255  INFO [address-service,,] 12008 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADDRESS-SERVICE/host.docker.internal:address-service:8181 - registration status: 204
+2022-01-28 23:42:00.556  INFO [address-service,,] 12008 --- [restartedMain] com.miaoubich.AddressServiceApplication  : Started AddressServiceApplication in 31.333 seconds (JVM running for 32.559)
+2022-01-28 23:44:38.766  INFO [address-service,380418ca1f3feab2,380418ca1f3feab2] 12008 --- [http-nio-8181-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-28 23:44:38.767  INFO [address-service,380418ca1f3feab2,380418ca1f3feab2] 12008 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-28 23:44:38.779  INFO [address-service,380418ca1f3feab2,380418ca1f3feab2] 12008 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2022-01-28 23:44:39.150 DEBUG [address-service,380418ca1f3feab2,edb82313dc6aa558] 12008 --- [http-nio-8181-exec-2] org.hibernate.SQL                        : select address0_.address_id as address_1_0_0_, address0_.city as city2_0_0_, address0_.street as street3_0_0_ from addresses address0_ where address0_.address_id=?
+2022-01-28 23:44:44.065 DEBUG [address-service,784e980f1086a331,82f4fd52ae3f8705] 12008 --- [http-nio-8181-exec-3] org.hibernate.SQL                        : select address0_.address_id as address_1_0_, address0_.city as city2_0_, address0_.street as street3_0_ from addresses address0_
+2022-01-28 23:44:44.216  WARN [address-service,,] 12008 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2022-01-28 23:44:44.230  WARN [address-service,,] 12008 --- [AsyncReporter{RabbitMQSender{addresses=[localhost:5672], queue=zipkin}}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to RuntimeException(Unable to establish connection to RabbitMQ server)
+
+java.lang.RuntimeException: Unable to establish connection to RabbitMQ server
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:253) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.get(RabbitMQSender.java:242) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender.localChannel(RabbitMQSender.java:275) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.publish(RabbitMQSender.java:294) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:289) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.reporter.amqp.RabbitMQSender$RabbitMQCall.doExecute(RabbitMQSender.java:281) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.0.jar:na]
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.1.jar:na]
+	at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) [zipkin-reporter-2.16.1.jar:na]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_271]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_271]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[na:1.8.0_271]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[na:1.8.0_271]
+	at java.net.Socket.connect(Unknown Source) ~[na:1.8.0_271]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1050) ~[amqp-client-5.13.1.jar:5.13.1]
+	at zipkin2.reporter.amqp.RabbitMQSender.newConnection(RabbitMQSender.java:251) ~[zipkin-sender-amqp-client-2.16.1.jar:na]
+	... 9 common frames omitted
+
