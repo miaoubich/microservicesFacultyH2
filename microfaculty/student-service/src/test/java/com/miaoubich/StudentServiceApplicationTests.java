@@ -30,8 +30,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.miaoubich.controller.StudentController;
 import com.miaoubich.entity.Student;
 import com.miaoubich.repository.StudentRepository;
@@ -53,8 +56,7 @@ class StudentServiceApplicationTests {
 	private StudentRepository studentRepository;
 	@Autowired
 	private MockMvc mockMvc;
-	
-	
+
 	private ObjectMapper mapper = new ObjectMapper();
 	private long studentId = 5;
 
@@ -76,7 +78,7 @@ class StudentServiceApplicationTests {
 	@Test
 	void addStudentUsingMockitoAndMockMvcTest() throws Exception {
 		CreateStudentRequest studentRequest = createStudentRequest();
-		
+
 		String jsonRequest = mapper.writeValueAsString(studentRequest);
 
 		CustomResponseMessage expectedResponse = new CustomResponseMessage();
@@ -85,78 +87,80 @@ class StudentServiceApplicationTests {
 		when(studentService.addStudent(any())).thenReturn(expectedResponse);
 
 		this.mockMvc.perform(post("/api/student/add").content(jsonRequest).contentType(MediaType.APPLICATION_JSON))
-				.andDo(print())
-				.andExpect(status().isCreated())
+				.andDo(print()).andExpect(status().isCreated())
 				.andExpect(jsonPath("$.response").value(expectedResponse.getResponse()));
 	}
 
 	@Test
 	public void printSingleStudentTest() throws Exception {
-
 		StudentResponse studentResponse = new StudentResponse(buildStudent());
+		String jsonstudentResponse = new Gson().toJson(studentResponse);
+		
 		logger.info("StudentId: " + studentResponse.getId());
 		when(studentService.getStudentById(studentId)).thenReturn(studentResponse);
 
-		this.mockMvc.perform(get("/api/student/" + studentResponse.getId())
-	// 						.param("name", "Ali") // add this if there parameters in the url)
-							) 
-				.andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.firstName").value(studentResponse.getFirstName()));
-//				.andReturn();
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/student/{studentId}", studentResponse.getId())
+		// .param("name", "Ali") // add this if there parameters in the url)
+		).andDo(print()).andExpect(status().isOk())
+				.andExpect(jsonPath("$.firstName").value(studentResponse.getFirstName()))
+				.andExpect(content().json(jsonstudentResponse));
 	}
 
 	@Test
 	public void getStudentsUsingMockitoAndMockMvcTest() throws Exception {
+		//Convert a list object to json object
+		String jsonStudentList = new Gson().toJson(listOfStudents());
+
 		when(studentService.getStudents()).thenReturn(listOfStudents());
 		this.mockMvc.perform(get("/api/student/getList"))
-				.andDo(print())
-				.andExpect(jsonPath("$.length()", is(2))) // check the list length
-				.andExpect(status().isFound())
-				.andExpect(jsonPath("$.[0].lastname").value("CNN"));//check the lastname of the first element from the list
-		
+		.andDo(print())
+			// check the list length
+		.andExpect(jsonPath("$.length()", is(2))) 
+		.andExpect(status().isFound())
+		// check the lastname of the first element from the list
+		.andExpect(jsonPath("$.[1].lastname").value("CNN"))
+		// Check the resulted list content with the original list
+		.andExpect(content().json(jsonStudentList));
+
 	}
-	
+
 	@Test
 	public void getStudentsUsingMockitoTest() throws Exception {
-		
+
 //		when(studentRepository.findAll()).thenReturn(Stream.of(student1, student2).collect(Collectors.toList()));
 		when(studentService.getStudents()).thenReturn(listOfStudents());
-		
-		  ResponseEntity<List<Student>> response = studentController.getAllStudents();
-		  
-		  assertEquals(2, studentController.getAllStudents().getBody().size());
-		  assertEquals(302, response.getStatusCodeValue());
-		  assertEquals(HttpStatus.FOUND,
-		  studentController.getAllStudents().getStatusCode());
-		 
+
+		ResponseEntity<List<Student>> response = studentController.getAllStudents();
+
+		assertEquals(2, studentController.getAllStudents().getBody().size());
+		assertEquals(302, response.getStatusCodeValue());
+		assertEquals(HttpStatus.FOUND, studentController.getAllStudents().getStatusCode());
+
 	}
 
 	@Test
 	public void updateStudentTest() throws Exception {
 		Student student = buildStudent();
 		Student updateStudent = updateStudent();
-		
+
 		String jsonString = mapper.writeValueAsString(student);
 
 		when(studentService.EditStudent(any())).thenReturn(updateStudent);
-		
+
 		this.mockMvc.perform(put("/api/student/update").contentType(MediaType.APPLICATION_JSON).content(jsonString))
-						.andDo(print())
-						.andExpect(status().isOk());
+				.andDo(print()).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void deleteStudentTest() throws Exception {
 
 		ResponseEntity<String> responseEntity = ResponseEntity.ok("Student successfully deleted!");
-		
+
 		when(studentService.deleteStudent(studentId)).thenReturn(responseEntity);
-		
-		this.mockMvc.perform(delete("/api/student/delete/" + studentId))
-						.andDo(print())				
-						.andExpect(status().isOk())
-						.andExpect(content().string(responseEntity.getBody()));
-		
+
+		this.mockMvc.perform(delete("/api/student/delete/" + studentId)).andDo(print()).andExpect(status().isOk())
+				.andExpect(content().string(responseEntity.getBody()));
+
 		/*
 		 * ResponseEntity<String> response = studentController.deleteStudent(studentId);
 		 * assertEquals("Student successfully deleted!", response.getBody());
@@ -177,7 +181,7 @@ class StudentServiceApplicationTests {
 
 		return student;
 	}
-	
+
 	private Student updateStudent() {
 		Student student = new Student();
 

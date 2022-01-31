@@ -93,6 +93,7 @@ class AddressServiceApplicationTests {
 
 	@Test
 	public void getListOfAddresses() throws Exception {
+		// POJO to Json
 		String jsonAddressList = new Gson().toJson(addressList());
 
 		when(addressService.getAddresses()).thenReturn(addressList());

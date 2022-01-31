@@ -3,6 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+C:\Users\miaou\git\microfaculty\micro-faculty\microservicesFacultyH2\microfaculty\address-service\log\
+C:\Users\miaou\git\microfaculty\micro-faculty\microservicesFacultyH2\microfaculty\address-service\target\
 
 ### STS ###
 .apt_generated
