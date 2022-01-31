@@ -38,7 +38,7 @@ public class StudentController {
 
 //		studentService.addStudent(studentRequest);
 		HttpHeaders header = new HttpHeaders();
-		header.set("Awesome", "dayOne");
+		header.set("Awesome", "studentDayOne");
 
 		return new ResponseEntity<CustomResponseMessage>(studentService.addStudent(studentRequest), header,
 				HttpStatus.CREATED);
