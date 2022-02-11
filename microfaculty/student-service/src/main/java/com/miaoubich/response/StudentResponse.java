@@ -8,6 +8,7 @@ public class StudentResponse {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String environment;
 	
 	private AddressResponse addressResponse;
 
@@ -16,6 +17,15 @@ public class StudentResponse {
 		this.firstName = student.getFirstname();
 		this.lastName = student.getLastname();
 		this.email = student.getEmail();
+		this.environment = student.getEnvironment();
+	}
+
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
 	public long getId() {

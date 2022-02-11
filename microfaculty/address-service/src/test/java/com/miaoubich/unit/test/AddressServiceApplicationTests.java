@@ -46,6 +46,7 @@ class AddressServiceApplicationTests {
 	private AddressRepository addressRepository;
 
 	private final Logger log = LoggerFactory.getLogger(AddressServiceApplicationTests.class);
+	//To convert object to Json
 	private ObjectMapper mapper = new ObjectMapper();
 	private long addressId = 1;
 

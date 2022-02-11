@@ -13,6 +13,7 @@
 	<artifactId>address-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>address-service</name>
+	
 	<description>Address Microservice project for Spring Boot</description>
 
 	<properties>

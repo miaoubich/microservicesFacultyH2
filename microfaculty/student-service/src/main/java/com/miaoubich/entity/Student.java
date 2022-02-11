@@ -15,16 +15,19 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "student_id")
 	private Long id;
-	
+
 	@Column(name = "first_name")
 	private String firstname;
-	
+
 	@Column(name = "last_name")
 	private String lastname;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
+	@Column(name = "environment")
+	private String environment;
+
 	@Column(name = "fk_address_id")
 	private Long addressId;
 
@@ -58,6 +61,14 @@ public class Student {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
 	public Long getAddressId() {

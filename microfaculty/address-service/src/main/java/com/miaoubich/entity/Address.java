@@ -21,6 +21,9 @@ public class Address {
 	
 	@Column(name = "city")
 	private String city;
+	
+	@Column(name = "environment")
+	private String environment;
 
 	public Long getId() {
 		return id;
@@ -44,6 +47,14 @@ public class Address {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;		
 	}
 
 }

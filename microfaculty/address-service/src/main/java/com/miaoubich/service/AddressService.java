@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import com.miaoubich.response.AddressResponse;
 public class AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
+	@Autowired
+	private Environment environment;
 
 	private static final Logger logger = LoggerFactory.getLogger(AddressService.class);
 
@@ -36,7 +39,14 @@ public class AddressService {
 	}
 
 	public AddressResponse getAddressById(Long addressId) {
-		return new AddressResponse(addressRepository.getById(addressId));
+		//host --> will be the pod name in K8S
+		String host = environment.getProperty("HOSTNAME");
+		String port = environment.getProperty("local.server.port");
+		
+		Address address = addressRepository.getById(addressId);
+		address.setEnvironment(port + ", " + host);
+		
+		return new AddressResponse(address);
 	}
 
 	public List<Address> getAddresses() {

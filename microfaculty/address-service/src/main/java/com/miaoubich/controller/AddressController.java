@@ -3,8 +3,8 @@ package com.miaoubich.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +40,10 @@ public class AddressController {
 
 	@PostMapping("/addList")
 	public ResponseEntity<List<Address>> addAddresses(@RequestBody List<Address> addresses) {
-		return new ResponseEntity<List<Address>>(addressService.addAddressList(addresses), HttpStatus.CREATED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("addAddressesHeader", "fromAddList");
+		
+		return new ResponseEntity<List<Address>>(addressService.addAddressList(addresses), headers, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/{addressId}")
@@ -55,7 +58,10 @@ public class AddressController {
 
 	@PutMapping("/update")
 	public ResponseEntity<Address> updateAddress(@RequestBody Address address) {
-		return new ResponseEntity<Address>(addressService.EditAddress(address), HttpStatus.OK);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("addressHeader", "fromUpdateAddress");
+		
+		return new ResponseEntity<Address>(addressService.EditAddress(address), headers, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{addressId}")

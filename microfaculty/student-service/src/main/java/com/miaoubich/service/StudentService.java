@@ -1,11 +1,11 @@
 package com.miaoubich.service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +30,8 @@ public class StudentService {
 
 	@Autowired
 	private CommonService commonService;
+	@Autowired
+	private Environment environment;
 
 	public CustomResponseMessage addStudent(CreateStudentRequest createStudentRequest) {
 
@@ -64,6 +66,10 @@ public class StudentService {
 
 	public StudentResponse getStudentById(long studentId) {
 
+		//host --> will be the pod name in K8S
+		String host = environment.getProperty("HOSTNAME");
+		String port = environment.getProperty("local.server.port");
+		
 		// for testing purpose
 		logger.info("This log is comming from getStudentById(studentId) method.");
 
@@ -73,7 +79,8 @@ public class StudentService {
 //		studentResponse.setAddressResponse(getAddressById(student.getAddressId()));
 		// or we use feignClient
 		studentResponse.setAddressResponse(commonService.getAddressById(student.getAddressId()));
-
+		studentResponse.setEnvironment(port + ", " + host);
+		
 		return studentResponse;
 	}
 
