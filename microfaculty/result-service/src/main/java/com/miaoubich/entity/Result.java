@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity 
 @Table(name = "grades")
-public class Grade {
+public class Result {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -55,13 +55,14 @@ class AddressServiceApplicationTests {
 		CreateAddressRequest addressRequest = addressRequest();
 		String jsonString = mapper.writeValueAsString(addressRequest);
 
-		when(addressService.addAddress(any())).thenReturn(addressResponse());
+		when(addressService.addAddress(any(CreateAddressRequest.class))).thenReturn(addressResponse());
 
 		log.info("Street: " + addressResponse().getStreet());
 		log.info("City: " + addressResponse().getCity());
 
 		this.mockMvc.perform(post("/api/address/add").content(jsonString).contentType(MediaType.APPLICATION_JSON))
-				.andDo(print()).andExpect(status().isOk())
+				.andDo(print())
+				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.city").value(addressResponse().getCity()))
 				.andExpect(jsonPath("$.street").value(addressResponse().getStreet()));
 	}

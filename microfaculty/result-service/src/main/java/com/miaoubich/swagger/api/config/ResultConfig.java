@@ -1,3 +1,4 @@
+package com.miaoubich.swagger.api.config;
 //package com.miaoubich.swagger.api.config;
 //
 //import org.springframework.context.annotation.Bean;
