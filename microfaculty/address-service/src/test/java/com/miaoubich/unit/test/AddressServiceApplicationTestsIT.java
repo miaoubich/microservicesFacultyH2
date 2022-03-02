@@ -115,8 +115,7 @@ public class AddressServiceApplicationTestsIT {
 				+ "\"environment\":\"8181, null\"}";
 
 //		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:" + port + "/api/address/1", String.class);
-		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8181/api/address/1",
-				String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8181/api/address/1", String.class);
 
 //		String responseObject = restTemplate.getForObject("http://localhost:8181/api/address/1", String.class);
 
